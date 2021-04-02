@@ -3,7 +3,17 @@ import './App.scss';
 function App() {
   return (
     <div className="App">
-      arthur
+      {/* navbar */}
+ff
+      {/* banner */}
+
+      {/* row */}
+
+      {/* video */}
+
+      {/* quick view */}
+      
+      {/* footer */}
     </div>
   );
 }
