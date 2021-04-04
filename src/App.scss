@@ -3,10 +3,18 @@ body {
   font-family: 'Roboto';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(73, 69, 69);
 }
 *, ::before, ::after{
   box-sizing: border-box;
   outline: none;
   margin: 0;
   padding: 0;
+}
+button{
+  background-color: none;
+  border: none;
+  @media screen and (min-width:768px) {
+    display: none;
+  }
 }
