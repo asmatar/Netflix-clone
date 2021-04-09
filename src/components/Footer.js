@@ -10,10 +10,10 @@ const Footer = () => {
         <footer className='footer'>
             <div className="container">
                 <div className="footer__socials">
-                    <a href="/" className="footer__link"><FacebookIcon/></a>
-                    <a href="/" className="footer__link"><InstagramIcon/></a>
-                    <a href="/" className="footer__link"><TwitterIcon/></a>
-                    <a href="/" className="footer__link"><YouTubeIcon/></a>
+                    <a href="/" className="footer__social"><FacebookIcon/></a>
+                    <a href="/" className="footer__social"><InstagramIcon/></a>
+                    <a href="/" className="footer__social"><TwitterIcon/></a>
+                    <a href="/" className="footer__social"><YouTubeIcon/></a>
                 </div>
                 <ul className="footer__links">
                     <li className="footer__link">

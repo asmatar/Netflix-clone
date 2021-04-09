@@ -8,14 +8,14 @@
     padding: 12px 4%;
     font-size: 0.9rem;
     color: white;
-    background: linear-gradient(to bottom, rgba(74,74,74,0.6), rgba(0,0,0,0.6));
+    background: linear-gradient(to bottom, rgba(74,74,74,0.6), rgba(0,0,0,0));
     transition: background-color .3s ease-in-out;
     a{
         color: white;
         text-decoration: none;
     }
     &--black{
-        background-color: black;
+        background-color: #000;;
     }
     &__burger{
         cursor: pointer;
@@ -48,7 +48,7 @@
                 width: 100%;
                 height: calc(100vh -60 px);
                 top: 60px;
-                background-color: black;
+                background-color: #000;
             }
             .nav__link{
                 padding: 15px 4%;
