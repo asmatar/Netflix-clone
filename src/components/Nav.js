@@ -5,7 +5,7 @@ const Nav = () => {
     return (
         <div className='nav show nav--black'>
            <button className="nav__burger">---</button>
-           <img src="../image/art.jpg" alt="Netflix"/>
+           <img src="./image/logo.png" alt="Netflix"/>
            <nav className='nav__links'>
                <a href="/" className='nav__link'> 
                     acceuil
@@ -31,7 +31,7 @@ const Nav = () => {
                    notif
                </a>
                <a href="/" className='nav_action'>
-                   <img src="../image/avatar.png" alt=""/>
+                   <img src="./image/avatar.jpg" alt=""/>
                </a>
            </div>
         </div>

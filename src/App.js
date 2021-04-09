@@ -3,6 +3,7 @@ import Nav from './components/Nav';
 
 function App() {
   return (
+    
     <div className="App">
       <Nav />
       {/* navbar */}
@@ -16,7 +17,7 @@ function App() {
       {/* quick view */}
       
       {/* footer */}
-    </div>
+    </div> 
   );
 }
 
