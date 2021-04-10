@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Nav /> 
       <Banner />
-      {/*  on doit passer en props le titre de la catégorie et l'URL */}
+      {/*  on doit passer en props le titre de la catégorie et l'URL, les URL sont présentes dans la doc de l'API*/}
       <Row title='Programmes originaux Netflix' fetchUrl={requests.fetchNetflixOriginals} isPoster ={true}/>
       <Row title='Tendance actuelle' fetchUrl={requests.fetchTrending}/>
       <Row title="Les mieux notés" fetchUrl={requests.fetchTopRated} />
