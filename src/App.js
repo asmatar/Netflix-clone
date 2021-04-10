@@ -2,6 +2,7 @@ import './App.scss';
 import Banner from './components/Banner';
 import Footer from './components/Footer';
 import Nav from './components/Nav';
+import QuickView from './components/QuickView';
 import Row from './components/Row';
 import requests from './config/request';
 function App() {
@@ -20,7 +21,7 @@ function App() {
       <Row title="Documentaires" fetchUrl={requests.fetchActionMovies} />
 
       {/* video */}
-
+      <QuickView />
       {/* quick view */}
       
       {/* footer */}
