@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Row.scss';
-
 const Row = ({title, fetchUrl, isPoster}) => {
     const baseUrl = 'https://image.tmdb.org/t/p/original/'
     // on veux recuperer tous les films dans une variable movies
@@ -29,6 +29,8 @@ const Row = ({title, fetchUrl, isPoster}) => {
                     {/* On map sur les résultats de l'API qui sont stoqués dans la variable movies */}
                     {movies.map((movie)=> (
                     <div key={movie.id}>
+                        {/* si on click sur une image on arrive également a l'url de la video */}
+                        <Link to={`/video/${movie?.id}`}>
                         {/* On creer une variable qu'on initialise a true, si elle est a true alors on vas chercher une url */}
                         {isPoster ? (
                         <img src={`${baseUrl}${movie?.poster_path}`} alt={movie.title} className='row__image'/>
@@ -37,6 +39,7 @@ const Row = ({title, fetchUrl, isPoster}) => {
                             // On va chercher une autre URL
                             <img src={`${baseUrl}${movie?.backdrop_path}`} alt={movie.title} className='row__image'/>
                         )}
+                        </Link>
                     </div>
                     ))}
                 </div>

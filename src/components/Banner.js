@@ -2,6 +2,7 @@ import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import axios from "axios";
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import requests from "../config/request";
 import './Banner.scss';
 import QuickView from "./QuickView";
@@ -56,7 +57,12 @@ const Banner = () => {
                 {truncateText(movie?.overview, 100)}
                 </p>
                 <div className="banner__buttons">
-                    <button className="banner__button banner__button--play"><PlayArrowIcon /> Lecture</button>
+                    {/* au click sur le bouton, on sera dirigé vers la page affichant la video */}
+                <Link to={`/video/${movie?.id}`}>
+                <button className="banner__button banner__button--play">
+                    <PlayArrowIcon /> Lecture
+                </button>
+                </Link>
                     {/*  la popup s'ouvre avec ce bouton */}
                     <button className="banner__button" onClick={handlePopup}><HelpOutlineIcon /> Plus d'info</button>
                 </div>
