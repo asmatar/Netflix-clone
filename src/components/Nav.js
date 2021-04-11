@@ -42,19 +42,19 @@ const Nav = () => {
                </a>
            </nav>
            <div className="nav__actions">
-               <a href="/" className='nav_action'>
+               <a href="/" className='nav__action'>
                <SearchIcon/>
                </a>
-               <a href="/" className='nav_action'>
+               <a href="/" className='nav__action'>
                direct
                </a>
-               <a href="/" className='nav_action'>
+               <a href="/" className='nav__action'>
                <CardGiftcardIcon/>
                </a>
-               <a href="/" className='nav_action'>
+               <a href="/" className='nav__action'>
                <NotificationsIcon/>
                </a>
-               <a href="/" className='nav_action'>
+               <a href="/" className='nav__action'>
                    <img src="./image/avatar.jpg" alt=""/>
                </a>
            </div>

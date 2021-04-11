@@ -4,7 +4,7 @@ import axios from "axios";
 import React, { useEffect, useState } from 'react';
 import requests from "../config/request";
 import './Banner.scss';
-
+import QuickView from "./QuickView";
 const Banner = () => {
 
     // on veux trouver un film aléatoire parmis l'ensemble des films
@@ -36,6 +36,14 @@ const Banner = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
     }
+    // POp up
+    const [popup, setPopup] = useState(false)
+    //fonction pour ouvrir la pop up
+    function handlePopup () {
+        // si popup est true on ferme la pop up, sinon on l'ouvre
+        popup ? setPopup(false) : setPopup(true)
+    }
+    console.log(popup)
     return (
         // on applique le style du banner
         <header className='banner' style={bannerStyle}>
@@ -49,9 +57,10 @@ const Banner = () => {
                 </p>
                 <div className="banner__buttons">
                     <button className="banner__button banner__button--play"><PlayArrowIcon /> Lecture</button>
-                    <button className="banner__button"><HelpOutlineIcon /> Plus d'info</button>
+                    <button className="banner__button" onClick={handlePopup}><HelpOutlineIcon /> Plus d'info</button>
                 </div>
             </div>          
+            <QuickView bannerStyle={bannerStyle} movie={movie} popup={handlePopup} popupStatuts={popup}/>
         </header>
     )
 }

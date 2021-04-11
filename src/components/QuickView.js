@@ -1,20 +1,22 @@
   
+import CancelIcon from "@material-ui/icons/Cancel"
 import React from "react"
 import "./QuickView.scss"
 
-
-function QuickView() {
+function QuickView({bannerStyle, movie, popup, popupStatuts}) {
   return (
-    <div className="quickView">
-        <div className="quickView__banner">
+    <div className={`quickView ${popupStatuts && 'open'}`}>
+        <div className="quickView__banner" style={bannerStyle}>
             <div className="quickView__content">
-                <h3 className="quickView__title">titre</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati enim voluptatum esse laboriosam 
-                    aliquam iste incidunt nostrum blanditiis eum, doloremque ducimus neque porro aperiam, 
-                    nihil totam unde vitae consectetur quibusdam.
-                </p>
+                <h3 className="quickView__title">  
+                  {movie?.title || movie?.original_title || movie?.name}
+                </h3>
+                <p>{movie?.overview}</p>
             </div>
         </div>
+      <button className="quickView__close" onClick={popup}>
+        <CancelIcon fontSize="large" />
+      </button>
     </div>
   )
 }
