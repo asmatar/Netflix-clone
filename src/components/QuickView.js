@@ -5,6 +5,7 @@ import "./QuickView.scss"
 
 function QuickView({bannerStyle, movie, popup, popupStatuts}) {
   return (
+    // si la popup est true, alors on utilise la classe 'open'
     <div className={`quickView ${popupStatuts && 'open'}`}>
         <div className="quickView__banner" style={bannerStyle}>
             <div className="quickView__content">
@@ -14,6 +15,7 @@ function QuickView({bannerStyle, movie, popup, popupStatuts}) {
                 <p>{movie?.overview}</p>
             </div>
         </div>
+        {/* Au click on appel popup */}
       <button className="quickView__close" onClick={popup}>
         <CancelIcon fontSize="large" />
       </button>

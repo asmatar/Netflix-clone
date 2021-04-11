@@ -57,9 +57,12 @@ const Banner = () => {
                 </p>
                 <div className="banner__buttons">
                     <button className="banner__button banner__button--play"><PlayArrowIcon /> Lecture</button>
+                    {/*  la popup s'ouvre avec ce bouton */}
                     <button className="banner__button" onClick={handlePopup}><HelpOutlineIcon /> Plus d'info</button>
                 </div>
-            </div>          
+            </div>
+            {/*  la pop up = quickview , on lui donne un style avec banner style, on lui passe movie pour afficher les donnée de la movie, 
+            on passe popup qui va appelé la fonction pour ouvrir ou fermer la popup, on passe popup status pour savoir si la popup est ouverte ou fermé */}
             <QuickView bannerStyle={bannerStyle} movie={movie} popup={handlePopup} popupStatuts={popup}/>
         </header>
     )
