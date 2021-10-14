@@ -17,32 +17,44 @@ const Footer = () => {
                 </div>
                 <ul className="footer__links">
                     <li className="footer__link">
-                        <a href="/"> Liens footer</a>
+                        <a href="/"> Audio and subtitles</a>
                     </li>
                     <li className="footer__link">
-                        <a href="/"> Liens footer</a>
+                        <a href="/"> Audiodescription</a>
                     </li>
                     <li className="footer__link">
-                        <a href="/"> Liens footer</a>
+                        <a href="/"> Help center</a>
                     </li>
                     <li className="footer__link">
-                        <a href="/"> Liens footer</a>
+                        <a href="/"> Gift Cards</a>
                     </li>
                     <li className="footer__link">
-                        <a href="/"> Liens footer</a>
+                        <a href="/"> Media centre</a>
                     </li>
                     <li className="footer__link">
-                        <a href="/"> Liens footer</a>
+                        <a href="/"> Investor Relations</a>
                     </li>
                     <li className="footer__link">
-                        <a href="/"> Liens footer</a>
+                        <a href="/"> Jobs</a>
                     </li>
                     <li className="footer__link">
-                        <a href="/"> Liens footer</a>
+                        <a href="/"> Terms of Use</a>
+                    </li>
+                    <li className="footer__link">
+                        <a href="/"> Privacity</a>
+                    </li>
+                    <li className="footer__link">
+                        <a href="/">Legal Notices</a>
+                    </li>
+                    <li className="footer__link">
+                        <a href="/"> Cookie Preferences</a>
+                    </li>
+                    <li className="footer__link">
+                        <a href="/"> Corporate Information</a>
                     </li>
                 </ul>
                 <div className="footer__copy">
-                    Netflix Clone - tous droits réservés
+                    Arthur Deruelle - Netflix Clone - tous droits réservés
                 </div>
             </div>
         </footer>

@@ -28,6 +28,9 @@
             // sur mobile on passe a deux collones
             flex: 1 0 50%;
             margin-bottom: 1.1rem;
+            :hover{
+                text-decoration: underline;
+            }
             // sur grand ecran on a 4 collones: 25%
             @media screen and (min-width:768px) {
                 // sur grand écran on a 4 collones, donc 25%

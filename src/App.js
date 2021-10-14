@@ -23,7 +23,6 @@ function App() {
             <Row title="Films d'horreur" fetchUrl={requests.fetchTrending} />
             <Row title="Comédies" fetchUrl={requests.fetchTopRated} />
             <Row title="Documentaires" fetchUrl={requests.fetchActionMovies} />
-
             {/* video */}
             <Footer  />
           </Route>

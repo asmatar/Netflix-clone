@@ -15,6 +15,7 @@ const Banner = () => {
         // on appel l'API
         async function fetchData () {;
             const request = await axios.get(requests.fetchTrending);
+            console.log('Api resultat',  request.data.results)
             // On rempli movie d'un film aléatoire ! parmis les résultats de films on veux trouver un films aléatoire, on utilise math floor et math random sur l'ensemble des résultats de la liste
             setMovie(
                 request.data.results[
@@ -59,9 +60,9 @@ const Banner = () => {
                 <div className="banner__buttons">
                     {/* au click sur le bouton, on sera dirigé vers la page affichant la video */}
                 <Link to={`/video/${movie?.id}`}>
-                <button className="banner__button banner__button--play">
-                    <PlayArrowIcon /> Lecture
-                </button>
+                    <button className="banner__button banner__button--play">
+                        <PlayArrowIcon /> Lecture
+                    </button>
                 </Link>
                     {/*  la popup s'ouvre avec ce bouton */}
                     <button className="banner__button" onClick={handlePopup}><HelpOutlineIcon /> Plus d'info</button>

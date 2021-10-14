@@ -9,13 +9,6 @@ const Nav = () => {
 
     // 1.1 creation state local pour mettre nav bar en black si on scroll, par défault la nav n'est pas noir
     const [navBlack, setNavBlack] = useState(false);
-    // 2 initialisation du toogle menu, par défaut a false, pour faire apparaitre le menu
-    const [toggleMenu, setToggleMenu] = useState(false);
-    // 2.1 si toggleMenu est a false on affiche pas le menu, et si togglemenu est a true on affiche le menu
-    const handleClick = () => {
-        console.log(toggleMenu)
-        toggleMenu ? setToggleMenu(false) : setToggleMenu(true)
-      }
     // 1.2 on vérifi lors du scroll vertical. Si on est >100 la nav bar black est a true, sinon false
     const transitionNav = () => {
       window.scrollY > 100 ? setNavBlack(true) : setNavBlack(false)
@@ -24,6 +17,13 @@ const Nav = () => {
     useState(() => {
       document.addEventListener("scroll", transitionNav)
     })
+    // 2 initialisation du toogle menu, par défaut a false, pour faire apparaitre le menu
+    const [toggleMenu, setToggleMenu] = useState(false);
+    // 2.1 si toggleMenu est a false on affiche pas le menu, et si togglemenu est a true on affiche le menu
+    const handleClick = () => {
+        console.log(toggleMenu)
+        toggleMenu ? setToggleMenu(false) : setToggleMenu(true)
+      }
     
     return (
         // 1.4 si navBlack = true 2.2 ET QUE le toggl menu =true on applique la class "nav--Black" SINON on applique une class "nav--transparent"
