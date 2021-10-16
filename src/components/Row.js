@@ -18,7 +18,7 @@ const Row = ({title, fetchUrl, isPoster}) => {
         // on appel fetchData mais seuleument au cargement de la page !
         fetchData();
     },[fetchUrl]);
-    console.log(movies);
+    // console.log(movies);
     return (
         <div className='row'>
             <h2 className="row__title"> {title}</h2>

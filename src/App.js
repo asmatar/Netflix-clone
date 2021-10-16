@@ -9,7 +9,6 @@ import Video from "./components/Video";
 import requests from './config/request';
 function App() {
   return (
-    
     <div className="App">
       <Router>
         <Switch>

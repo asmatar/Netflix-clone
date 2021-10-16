@@ -3,7 +3,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import SearchIcon from "@material-ui/icons/Search";
 import React, { useState } from 'react';
-import { NavLink } from "react-router-dom";
+import { GoogleLogout } from 'react-google-login';
+import { NavLink, useHistory } from "react-router-dom";
 import './Nav.scss';
 const Nav = () => {
     // 1 On veux detecter la transition au scroll
@@ -25,11 +26,19 @@ const Nav = () => {
         console.log(toggleMenu)
         toggleMenu ? setToggleMenu(false) : setToggleMenu(true)
       }
+      let history = useHistory()
+      const logout = () => {
+        console.log('logoiut fonction')
+        localStorage.clear()
+        history.push('/login')
+      }
     // const [activer, setActive] = useState(false)
     // console.log(activer)
     // const handleActive = () => {
     //   setActive(!activer)
     // }
+    // const picture = localStorage.getItem('userPicture')
+    // console.log(picture)
     return (
         // 1.4 si navBlack = true 2.2 ET QUE le toggl menu =true on applique la class "nav--Black" SINON on applique une class "nav--transparent"
         <div className={`nav ${navBlack || toggleMenu ? "nav--black" : "nav--transparent"} ${toggleMenu && "show"}`}>
@@ -77,11 +86,28 @@ const Nav = () => {
                <CardGiftcardIcon/>
                </NavLink>
                <NavLink to="/" className='nav__action'>
-               <NotificationsIcon/>
+               <NotificationsIcon
+               />
                </NavLink>
-               <NavLink to="/" className='nav__action'>
-                   <img src="./image/avatar.jpg" alt=""/>
-               </NavLink>
+                  <GoogleLogout
+                  className='log-out'
+                  clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+                  buttonText="Logout"
+                  onLogoutSuccess={logout}
+                  icon='false'
+                  >
+                     </GoogleLogout>
+               {/* <NavLink to="/" className='nav__action'> */}
+                 <div>
+                 {
+                   localStorage.getItem('userName') ? 
+                   `welcome ${localStorage.getItem('userName')}`
+                  //  localStorage.getItem('userPicture') 
+              
+                   : <img src="./image/avatar.jpg" alt=""/>
+                 }
+                </div>
+               {/* </NavLink> */}
            </div>
         </div>
     )
