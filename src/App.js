@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-d
 import './App.scss';
 import Banner from './components/Banner';
 import Footer from './components/Footer';
+import Login from "./components/Login";
 import Nav from './components/Nav';
 import Row from './components/Row';
 import Video from "./components/Video";
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path='/video/:id'>
             <Video />
+          </Route>
+          <Route path='/login'>
+            <Login />
           </Route>
           <Route path="*">
             <Redirect to="/" />

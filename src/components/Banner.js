@@ -45,7 +45,7 @@ const Banner = () => {
         // si popup est true on ferme la pop up, sinon on l'ouvre
         popup ? setPopup(false) : setPopup(true)
     }
-    console.log(popup)
+    // console.log(popup)
     return (
         // on applique le style du banner
         <header className='banner' style={bannerStyle}>

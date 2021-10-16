@@ -3,6 +3,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import SearchIcon from "@material-ui/icons/Search";
 import React, { useState } from 'react';
+import { NavLink } from "react-router-dom";
 import './Nav.scss';
 const Nav = () => {
     // 1 On veux detecter la transition au scroll
@@ -24,39 +25,63 @@ const Nav = () => {
         console.log(toggleMenu)
         toggleMenu ? setToggleMenu(false) : setToggleMenu(true)
       }
-    
+    // const [activer, setActive] = useState(false)
+    // console.log(activer)
+    // const handleActive = () => {
+    //   setActive(!activer)
+    // }
     return (
         // 1.4 si navBlack = true 2.2 ET QUE le toggl menu =true on applique la class "nav--Black" SINON on applique une class "nav--transparent"
         <div className={`nav ${navBlack || toggleMenu ? "nav--black" : "nav--transparent"} ${toggleMenu && "show"}`}>
            <button className="nav__burger" onClick={handleClick}>< MenuIcon /></button>
            <img src="./image/logo.png" alt="Netflix"/>
            <nav className='nav__links'>
-               <a href="/" className='nav__link'> 
-                    acceuil
-               </a>
-               <a href="/" className='nav__link'> 
-                series
-               </a>
-               <a href="/" className='nav__link'> 
-                    film
-               </a>
+               <NavLink to="/" 
+               className='nav__link' 
+              // className={activer ? "nav__link" : "active"}
+              //  onClick=
+              //  {(e)=>{e.preventDefault()
+                //  {handleActive}
+                // }}
+                > 
+                    Home
+               </NavLink>
+               <NavLink to="/"  className='nav__link' 
+              //  className={activer ? "nav__link" : "active"} onClick={handleActive}
+               > 
+                Series
+               </NavLink>
+               <NavLink to="/"
+                className='nav__link active' 
+                // className={activer ? "nav__link" : "active"}
+                // onClick={handleActive}
+                > 
+                    Film
+               </NavLink>
+               <NavLink to="/"
+                className='nav__link active' 
+                // className={activer ? "nav__link" : "active"}
+                // onClick={handleActive}
+                > 
+                    New&Popular
+               </NavLink>
            </nav>
            <div className="nav__actions">
-               <a href="/" className='nav__action'>
+               <NavLink to="/" className='nav__action'>
                <SearchIcon/>
-               </a>
-               <a href="/" className='nav__action'>
+               </NavLink>
+               <NavLink to="/" className='nav__action'>
                direct
-               </a>
-               <a href="/" className='nav__action'>
+               </NavLink>
+               <NavLink to="/" className='nav__action'>
                <CardGiftcardIcon/>
-               </a>
-               <a href="/" className='nav__action'>
+               </NavLink>
+               <NavLink to="/" className='nav__action'>
                <NotificationsIcon/>
-               </a>
-               <a href="/" className='nav__action'>
+               </NavLink>
+               <NavLink to="/" className='nav__action'>
                    <img src="./image/avatar.jpg" alt=""/>
-               </a>
+               </NavLink>
            </div>
         </div>
     )

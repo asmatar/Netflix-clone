@@ -15,8 +15,9 @@
     a {
       color: #FFF;
       text-decoration: none;
+    
     }
-  
+
     &--black {
       background-color: #000;
     }
@@ -41,7 +42,6 @@
     &__links {
       margin-left: 20px;
       transition: background-color .3s ease-in-out;
-  
       .nav__link {
         text-decoration: none;
         padding: 5px 10px;

@@ -16,7 +16,7 @@ function QuickView({bannerStyle, movie, popup, popupStatuts}) {
             </div>
         </div>
         {/* Au click on appel popup */}
-      <button className="quickView__close btn" onClick={popup}>
+      <button className="quickView__close" onClick={popup}>
         <CancelIcon fontSize="large" />
       </button>
 

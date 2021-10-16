@@ -9,9 +9,6 @@ const Video = () => {
   let id = "-WNgoqBGw4Y";
 
     return (
-        <>
-
-   
         <div className='video'>
             <NavLink to='/' className='btn'>
                 <div className='returnIcon'>
@@ -26,7 +23,6 @@ const Video = () => {
                 allowFullScreen>
         </iframe>
         </div>
-        </>
     )
 }
 
