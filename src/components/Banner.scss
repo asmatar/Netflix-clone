@@ -33,16 +33,22 @@
                 font-weight: 600;
                 padding: 0.4rem 1rem 0.4rem 0.5rem;
                 margin-right: 0.7rem;
-                background-color: rgba(110, 110, 110, 0.7);
+                background-color: rgba(110, 110, 110, 0.9);
                 border-radius: 5px;
                 cursor: pointer;
+                &:hover{
+                    background-color: rgba(110, 110, 110, 0.7);
+                }
                 @media screen and (min-width:768px) {
                     font-size: 1.4rem;
                     padding: 0.8rem 1.5rem;
                 }
                 &--play{
                     color: #000;
-                    background-color: rgba(255, 255, 255,0.7);
+                    background-color: rgb(255, 255, 255);
+                    &:hover{
+                        background-color: rgba(255, 255, 255,0.7);;
+                    }
                 }
                 svg {
                     margin-right: 0.4rem;

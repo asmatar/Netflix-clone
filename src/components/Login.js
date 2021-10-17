@@ -16,6 +16,7 @@ const Login = () => {
         history.push('/')
     }
     return (
+        
         <div className='login-container'>
             <div className='login-container__logo'>
                 <img src="./image/logo.png" alt="netflix" />

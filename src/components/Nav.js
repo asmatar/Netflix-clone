@@ -32,13 +32,6 @@ const Nav = () => {
         localStorage.clear()
         history.push('/login')
       }
-    // const [activer, setActive] = useState(false)
-    // console.log(activer)
-    // const handleActive = () => {
-    //   setActive(!activer)
-    // }
-    // const picture = localStorage.getItem('userPicture')
-    // console.log(picture)
     return (
         // 1.4 si navBlack = true 2.2 ET QUE le toggl menu =true on applique la class "nav--Black" SINON on applique une class "nav--transparent"
         <div className={`nav ${navBlack || toggleMenu ? "nav--black" : "nav--transparent"} ${toggleMenu && "show"}`}>
@@ -46,32 +39,16 @@ const Nav = () => {
            <img src="./image/logo.png" alt="Netflix"/>
            <nav className='nav__links'>
                <NavLink to="/" 
-               className='nav__link' 
-              // className={activer ? "nav__link" : "active"}
-              //  onClick=
-              //  {(e)=>{e.preventDefault()
-                //  {handleActive}
-                // }}
-                > 
+               className='nav__link' > 
                     Home
                </NavLink>
-               <NavLink to="/"  className='nav__link' 
-              //  className={activer ? "nav__link" : "active"} onClick={handleActive}
-               > 
+               <NavLink to="/"  className='nav__link'> 
                 Series
                </NavLink>
-               <NavLink to="/"
-                className='nav__link active' 
-                // className={activer ? "nav__link" : "active"}
-                // onClick={handleActive}
-                > 
+               <NavLink to="/" className='nav__link active' >
                     Film
                </NavLink>
-               <NavLink to="/"
-                className='nav__link active' 
-                // className={activer ? "nav__link" : "active"}
-                // onClick={handleActive}
-                > 
+               <NavLink to="/" className='nav__link active' > 
                     New&Popular
                </NavLink>
            </nav>
@@ -89,7 +66,17 @@ const Nav = () => {
                <NotificationsIcon
                />
                </NavLink>
-                  <GoogleLogout
+                 <div className='log'>
+                 {
+                   localStorage.getItem('userName') ? 
+                   <div className='login'>
+                     {`welcome ${localStorage.getItem('userName')}`}
+                    <img src="./image/flech.png" alt="" className='fleche' />
+                  </div>
+                   :
+                   <img src="./image/avatar.jpg" alt=""/>
+                 }     
+                 <GoogleLogout
                   className='log-out'
                   clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
                   buttonText="Logout"
@@ -97,17 +84,7 @@ const Nav = () => {
                   icon='false'
                   >
                      </GoogleLogout>
-               {/* <NavLink to="/" className='nav__action'> */}
-                 <div>
-                 {
-                   localStorage.getItem('userName') ? 
-                   `welcome ${localStorage.getItem('userName')}`
-                  //  localStorage.getItem('userPicture') 
-              
-                   : <img src="./image/avatar.jpg" alt=""/>
-                 }
                 </div>
-               {/* </NavLink> */}
            </div>
         </div>
     )

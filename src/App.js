@@ -11,10 +11,13 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Switch>
-          <Route exact path='/'>
-            <Nav /> 
+        <Switch>    
+        
+          <Route exact path='/'>  
+       
+             <Nav />
             <Banner />
+          
             {/*  on doit passer en props le titre de la catégorie et l'URL, les URL sont présentes dans la doc de l'API*/}
             <Row title='Programmes originaux Netflix' fetchUrl={requests.fetchNetflixOriginals} isPoster ={true}/>
             <Row title='Tendance actuelle' fetchUrl={requests.fetchTrending}/>
@@ -25,11 +28,13 @@ function App() {
             <Row title="Documentaires" fetchUrl={requests.fetchActionMovies} />
             {/* video */}
             <Footer  />
-          </Route>
+    
+        </Route>
           <Route path='/video/:id'>
             <Video />
           </Route>
           <Route path='/login'>
+        
             <Login />
           </Route>
           <Route path="*">
