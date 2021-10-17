@@ -1,6 +1,6 @@
 .quickView {
     position: fixed;
-    overflow: hidden;
+    // overflow: hidden;
     z-index: 2;
     border-radius: 10px;
     background-color: #111;
@@ -10,14 +10,12 @@
     top: 29vh;
     box-shadow: 0 0 10px rgba(000, 000, 000, 0.3);
     margin: 0 auto;
-    overflow-y: scroll;
     transition: transform 0.3s ease-in;
     visibility: hidden;
-    // overflow: hidden;
     &.open {
         visibility: visible;
         transform: scale(1.9);
-        // overflow-y: scroll;
+        overflow: auto;
     }
     &__banner {
         padding-top: 25vh;
@@ -25,7 +23,6 @@
     }
     &__content {
         padding: 3rem;
-        // font-size: 1.2rem;
     }
     &__close {
         cursor: pointer;

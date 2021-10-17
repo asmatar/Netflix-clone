@@ -6,6 +6,7 @@
         padding: 0 0.5rem ;
     }
     &__images{
+        position:relative;
         display: flex;
         align-items: center;
         overflow-x: visible;
@@ -16,9 +17,18 @@
             width: 300px;
             padding: 0.5rem;
             transition: transform 0.3s ease-in;
+            // &:hover{
+            //     cursor: pointer;
+            //     transform: scale(1.5);
+            // }
+        }
+        .row__MouseImage{
+            width: 300px;
+            padding: 0.5rem;
+            transition: transform 0.3s ease-in;
             &:hover{
                 cursor: pointer;
-                transform: scale(1.1);
+                transform: scale(1.5);
             }
         }
     }

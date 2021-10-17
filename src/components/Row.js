@@ -6,7 +6,12 @@ const Row = ({title, fetchUrl, isPoster}) => {
     const baseUrl = 'https://image.tmdb.org/t/p/original/'
     // on veux recuperer tous les films dans une variable movies
     const [movies, setMovies] = useState([])
-
+    const [toggleImgCss, setToggleImgCss ] = useState(false)
+    console.log(toggleImgCss)
+    const imgScale = () => {
+        console.log('okok')
+        setToggleImgCss(!toggleImgCss)
+    }
     useEffect(() => {
         // on appel l'API
         async function fetchData () {;
@@ -35,7 +40,13 @@ const Row = ({title, fetchUrl, isPoster}) => {
                         // sinon
                         ) : (
                             // On va chercher une autre URL
-                            <img src={`${baseUrl}${movie?.backdrop_path}`} alt={movie.title} className='row__image'/>
+                            <img src={`${baseUrl}${movie?.backdrop_path}`} 
+                            alt={movie.title} 
+                            className={`${toggleImgCss ? 'row__MouseImage' : 'row__image'}`}
+                            // 'row__image' 
+                            onMouseOver={imgScale}
+                            onMouseOut={imgScale}
+                            />
                         )}
                         </Link>
                     </div>
