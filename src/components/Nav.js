@@ -2,8 +2,7 @@ import CardGiftcardIcon from "@material-ui/icons/CardGiftcard";
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import SearchIcon from "@material-ui/icons/Search";
-import React, { useState } from 'react';
-import { GoogleLogout } from 'react-google-login';
+import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory } from "react-router-dom";
 import './Nav.scss';
 const Nav = () => {
@@ -16,9 +15,10 @@ const Nav = () => {
       window.scrollY > 100 ? setNavBlack(true) : setNavBlack(false)
     }
     // 1.3 au scroll on applique le changement
-    useState(() => {
-      document.addEventListener("scroll", transitionNav)
-    })
+    useEffect(() => {
+      document.addEventListener("scroll", transitionNav);
+      return () => window.removeEventListener('scroll', transitionNav)
+    }, [])
     // 2 initialisation du toogle menu, par défaut a false, pour faire apparaitre le menu
     const [toggleMenu, setToggleMenu] = useState(false);
     // 2.1 si toggleMenu est a false on affiche pas le menu, et si togglemenu est a true on affiche le menu
@@ -66,7 +66,7 @@ const Nav = () => {
                <NotificationsIcon
                />
                </NavLink>
-                 <div className='log'>
+                 {/* <div className='log'>
                  {
                    localStorage.getItem('userName') ? 
                    <div className='login'>
@@ -84,7 +84,12 @@ const Nav = () => {
                   icon='false'
                   >
                      </GoogleLogout>
-                </div>
+                </div> */}
+                   <NavLink to="/" className='nav__action'>
+                   <img src="./image/avatar.jpg" alt=""/>
+               
+               </NavLink>
+
            </div>
         </div>
     )

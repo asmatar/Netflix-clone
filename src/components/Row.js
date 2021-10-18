@@ -24,6 +24,8 @@ const Row = ({title, fetchUrl, isPoster}) => {
         fetchData();
     },[fetchUrl]);
     // console.log(movies);
+
+
     return (
         <div className='row'>
             <h2 className="row__title"> {title}</h2>
@@ -39,6 +41,7 @@ const Row = ({title, fetchUrl, isPoster}) => {
                         <img src={`${baseUrl}${movie?.poster_path}`} alt={movie.title} className='row__image'/>
                         // sinon
                         ) : (
+                            
                             // On va chercher une autre URL
                             <img src={`${baseUrl}${movie?.backdrop_path}`} 
                             alt={movie.title} 
@@ -47,7 +50,8 @@ const Row = ({title, fetchUrl, isPoster}) => {
                             onMouseOver={imgScale}
                             onMouseOut={imgScale}
                             />
-                        )}
+                        ) }
+                        
                         </Link>
                     </div>
                     ))}

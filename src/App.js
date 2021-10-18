@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-d
 import './App.scss';
 import Banner from './components/Banner';
 import Footer from './components/Footer';
-import Login from "./components/Login";
+import LoginScreen from "./components/LoginScreen";
 import Nav from './components/Nav';
 import Row from './components/Row';
 import Video from "./components/Video";
@@ -12,12 +12,9 @@ function App() {
     <div className="App">
       <Router>
         <Switch>    
-        
           <Route exact path='/'>  
-       
              <Nav />
             <Banner />
-          
             {/*  on doit passer en props le titre de la catégorie et l'URL, les URL sont présentes dans la doc de l'API*/}
             <Row title='Programmes originaux Netflix' fetchUrl={requests.fetchNetflixOriginals} isPoster ={true}/>
             <Row title='Tendance actuelle' fetchUrl={requests.fetchTrending}/>
@@ -26,16 +23,14 @@ function App() {
             <Row title="Films d'horreur" fetchUrl={requests.fetchTrending} />
             <Row title="Comédies" fetchUrl={requests.fetchTopRated} />
             <Row title="Documentaires" fetchUrl={requests.fetchActionMovies} />
-            {/* video */}
-            <Footer  />
-    
+            <Footer  />  
         </Route>
           <Route path='/video/:id'>
             <Video />
           </Route>
           <Route path='/login'>
-        
-            <Login />
+            {/* <Login /> */}
+            <LoginScreen />
           </Route>
           <Route path="*">
             <Redirect to="/" />
