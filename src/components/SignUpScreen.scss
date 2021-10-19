@@ -1,8 +1,10 @@
 .signUpScreen {
-    max-width: 300px;
+    max-width: 450px;
+    width: 400px;
+    height: 520px;
     padding: 70px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
     background: rgba(0,0,0,0.85);
     form {
         display: grid;
@@ -14,6 +16,7 @@
             border-radius: 5px;
             border:none;
             padding: 5px 15px;
+            width: 100%;
         }
         button {
             padding: 16px 20px;
@@ -22,6 +25,9 @@
             border-radius: 5px;
             background-color: #e50914;
             margin-bottom: 15px;
+            font-weight: bold;
+            margin-top: 12px;
+            cursor: pointer;
         }
         h1{
             text-align: left;

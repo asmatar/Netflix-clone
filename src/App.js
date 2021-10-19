@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import './App.scss';
 import Banner from './components/Banner';
@@ -7,7 +8,21 @@ import Nav from './components/Nav';
 import Row from './components/Row';
 import Video from "./components/Video";
 import requests from './config/request';
+import { auth } from './firebase';
 function App() {
+
+  useEffect(() => {
+    // we listen if the state authentificator have changed
+    const unsubscribe = auth.onAuthStateChanged(userAuth =>{
+      if(userAuth){
+        //logged in
+        console.log(userAuth)
+      }else {
+        //log out
+      }
+    })
+    return unsubscribe;
+  }, [])
   return (
     <div className="App">
       <Router>
