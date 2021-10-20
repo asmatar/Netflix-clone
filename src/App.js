@@ -1,6 +1,7 @@
 
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.scss';
 import Banner from './components/Banner';
 import Footer from './components/Footer';
@@ -10,31 +11,36 @@ import ProfileScreen from './components/ProfileScreen';
 import Row from './components/Row';
 import Video from "./components/Video";
 import requests from './config/request';
-import {
-  login
-  // , logout 
-} from './redux/actions/index';
+import { getUserAuth, login } from './redux/actions/index';
+// import {auth} from './firebase'
+function App({getUserAuth, userStore}
+  // login, logout, 
+  // getUserAuth
+  ) {
+  const user = userStore
+    console.log('donnée du user recuperer du store',userStore);
 
-function App(login, logout) {
-
-  // useEffect(() => {
-  //   // we listen if the state authentificator have changed
-  //   const unsubscribe = auth.onAuthStateChanged(userAuth =>{
-  //     if(userAuth){
-  //       //logged in
-  //       console.log(userAuth)
-  //       login()
-  //     }else {
-  //       //log out
-  //       // logout()
-  //     }
-  //   })
-  //   return unsubscribe;
-  // }, [])
+  useEffect(() => {
+    getUserAuth ()
+    // // we listen if the state authentificator have changed
+    // const unsubscribe = auth.onAuthStateChanged(userAuth =>{
+    //   if(userAuth){
+    //     //logged in
+    //     // typeof(log)
+    //     login()
+    //   }else {
+    //     // log out
+    //     // logout()
+    //   }
+    // })
+    // return unsubscribe;
+  }, [])
   return (
     <div className="App">
       <Router>
-        <Switch>    
+        <Switch> 
+          {
+            !user ? (    <LoginScreen /> ) : ( <>
           <Route exact path='/'>  
              <Nav />
             <Banner />
@@ -51,15 +57,14 @@ function App(login, logout) {
           <Route path='/video/:id'>
             <Video />
           </Route>
-          <Route path='/login'>
-            {/* <Login /> */}
-            <LoginScreen />
-          </Route>
           <Route path='/profile'>
             <ProfileScreen />
           </Route>
-          <Route path="*">
-            <Redirect to="/" />
+              </>
+              )
+          }
+          <Route path='/login'>
+            <LoginScreen />
           </Route>
       </Switch>
      </Router>
@@ -68,17 +73,16 @@ function App(login, logout) {
 }
 const mapStateToProps = (state) => {
   return {
-      user: state.userState.user
+      userStore: state.userState.user
   }
 }
 // Login 3 : sign in, callback another function 'signInAPI' ( action creator)
 const mapDispatchToProps = (dispatch) => {
+  console.log('1 je suis dans dispatch de get user auth')
   return {
-      login : () =>  dispatch(login(payload)),
-    //   logout : () => {
-    //     dispatch(logout())
-    // }
-  }
+      log : (payload) =>  dispatch(login(payload)),
+      getUserAuth: () => dispatch(getUserAuth())
+    }
 }
 export default connect(mapStateToProps,mapDispatchToProps )(App)
 

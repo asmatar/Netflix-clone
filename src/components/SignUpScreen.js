@@ -24,13 +24,14 @@ const SignUpScreen = () => {
     const signIn = (event) => {
         event.preventDefault();
 
-        auth.createUserWithEmailAndPassword(
+        auth.signInWithEmailAndPassword(
             // we get the value from these input
             emailRef.current.value,
             passwordRef.current.value
             // when we get it we do the following
         ).then((authUser) => {
             console.log(authUser)
+            console.log(authUser.user)
         }).catch(error => {
             alert(error.message)
         })
