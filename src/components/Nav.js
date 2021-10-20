@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory } from "react-router-dom";
 import './Nav.scss';
 const Nav = () => {
+  // let profile = useHistory()
     // 1 On veux detecter la transition au scroll
 
     // 1.1 creation state local pour mettre nav bar en black si on scroll, par défault la nav n'est pas noir
@@ -36,7 +37,7 @@ const Nav = () => {
         // 1.4 si navBlack = true 2.2 ET QUE le toggl menu =true on applique la class "nav--Black" SINON on applique une class "nav--transparent"
         <div className={`nav ${navBlack || toggleMenu ? "nav--black" : "nav--transparent"} ${toggleMenu && "show"}`}>
            <button className="nav__burger" onClick={handleClick}>< MenuIcon /></button>
-           <img src="./image/logo.png" alt="Netflix"/>
+           <img src="./image/logo.png" alt="Netflix" onClick={()=>history.push('/')}/>
            <nav className='nav__links'>
                <NavLink to="/" 
                className='nav__link' > 
@@ -85,10 +86,12 @@ const Nav = () => {
                   >
                      </GoogleLogout>
                 </div> */}
-                   <NavLink to="/" className='nav__action'>
-                   <img src="./image/avatar.jpg" alt=""/>
+                   {/* <NavLink to="/" className='nav__action'> */}
+                   <img src="./image/avatar.jpg" alt="" className='nav__action'
+                   onClick={()=> history.push('/profile')}
+                   />
                
-               </NavLink>
+               
 
            </div>
         </div>

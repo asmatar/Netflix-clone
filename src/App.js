@@ -1,28 +1,36 @@
-import { useEffect } from 'react';
+
+import { connect } from 'react-redux';
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import './App.scss';
 import Banner from './components/Banner';
 import Footer from './components/Footer';
 import LoginScreen from "./components/LoginScreen";
 import Nav from './components/Nav';
+import ProfileScreen from './components/ProfileScreen';
 import Row from './components/Row';
 import Video from "./components/Video";
 import requests from './config/request';
-import { auth } from './firebase';
-function App() {
+import {
+  login
+  // , logout 
+} from './redux/actions/index';
 
-  useEffect(() => {
-    // we listen if the state authentificator have changed
-    const unsubscribe = auth.onAuthStateChanged(userAuth =>{
-      if(userAuth){
-        //logged in
-        console.log(userAuth)
-      }else {
-        //log out
-      }
-    })
-    return unsubscribe;
-  }, [])
+function App(login, logout) {
+
+  // useEffect(() => {
+  //   // we listen if the state authentificator have changed
+  //   const unsubscribe = auth.onAuthStateChanged(userAuth =>{
+  //     if(userAuth){
+  //       //logged in
+  //       console.log(userAuth)
+  //       login()
+  //     }else {
+  //       //log out
+  //       // logout()
+  //     }
+  //   })
+  //   return unsubscribe;
+  // }, [])
   return (
     <div className="App">
       <Router>
@@ -47,6 +55,9 @@ function App() {
             {/* <Login /> */}
             <LoginScreen />
           </Route>
+          <Route path='/profile'>
+            <ProfileScreen />
+          </Route>
           <Route path="*">
             <Redirect to="/" />
           </Route>
@@ -55,5 +66,19 @@ function App() {
     </div> 
   );
 }
+const mapStateToProps = (state) => {
+  return {
+      user: state.userState.user
+  }
+}
+// Login 3 : sign in, callback another function 'signInAPI' ( action creator)
+const mapDispatchToProps = (dispatch) => {
+  return {
+      login : () =>  dispatch(login(payload)),
+    //   logout : () => {
+    //     dispatch(logout())
+    // }
+  }
+}
+export default connect(mapStateToProps,mapDispatchToProps )(App)
 
-export default App;
