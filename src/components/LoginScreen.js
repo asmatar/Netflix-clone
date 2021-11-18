@@ -3,7 +3,6 @@ import './LoginScreen.scss';
 import SignUpScreen from './SignUpScreen';
 const LoginScreen = () => {
     const [signIn, setSignIn] =  useState(false)
-    console.log(signIn)
     return (
         <div className='login-container'>
             <div className='login-container__logo'>

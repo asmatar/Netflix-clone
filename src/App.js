@@ -13,27 +13,10 @@ import Video from "./components/Video";
 import requests from './config/request';
 import { getUserAuth, login } from './redux/actions/index';
 // import {auth} from './firebase'
-function App({getUserAuth, userStore}
-  // login, logout, 
-  // getUserAuth
-  ) {
+function App({getUserAuth, userStore}) {
   const user = userStore
-    console.log('donnée du user recuperer du store',userStore);
-
   useEffect(() => {
     getUserAuth ()
-    // // we listen if the state authentificator have changed
-    // const unsubscribe = auth.onAuthStateChanged(userAuth =>{
-    //   if(userAuth){
-    //     //logged in
-    //     // typeof(log)
-    //     login()
-    //   }else {
-    //     // log out
-    //     // logout()
-    //   }
-    // })
-    // return unsubscribe;
   }, [])
   return (
     <div className="App">
@@ -78,7 +61,6 @@ const mapStateToProps = (state) => {
 }
 // Login 3 : sign in, callback another function 'signInAPI' ( action creator)
 const mapDispatchToProps = (dispatch) => {
-  console.log('1 je suis dans dispatch de get user auth')
   return {
       log : (payload) =>  dispatch(login(payload)),
       getUserAuth: () => dispatch(getUserAuth())

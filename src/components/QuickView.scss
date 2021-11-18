@@ -1,6 +1,6 @@
 .quickView {
     position: fixed;
-    // overflow: hidden;
+    overflow-y: hidden;
     z-index: 2;
     border-radius: 10px;
     background-color: #111;
@@ -12,17 +12,32 @@
     margin: 0 auto;
     transition: transform 0.3s ease-in;
     visibility: hidden;
-    &.open {
+    @media screen and (max-width:768px) {
+        max-width: 30vh;
+        left: 25%;
+        right: 25%;
+        margin: 0 auto;
+    }
+    &.open {   
+        
         visibility: visible;
         transform: scale(1.9);
         overflow: auto;
     }
     &__banner {
-        padding-top: 25vh;
+        padding-top: 23vh;
         height: 25vh;
+        @media screen and (max-width:768px) {
+            background-size: contain !important;
+            background-repeat: no-repeat;
+        }
     }
     &__content {
         padding: 3rem;
+        @media screen and (max-width:768px) {
+            font-size: 0.6rem;
+            padding: 1rem;
+        }
     }
     &__close {
         cursor: pointer;
@@ -32,6 +47,9 @@
         background: none;
         // color: #fff;
         color: black;
+        @media screen and (max-width:768px) {
+            margin-top: 20px;
+        }
     }
     @media screen and (min-width:768px) {
         width: 50%;

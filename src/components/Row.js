@@ -6,12 +6,10 @@ const Row = ({title, fetchUrl, isPoster}) => {
     const baseUrl = 'https://image.tmdb.org/t/p/original/'
     // on veux recuperer tous les films dans une variable movies
     const [movies, setMovies] = useState([])
-    const [toggleImgCss, setToggleImgCss ] = useState(false)
-    console.log(toggleImgCss)
-    const imgScale = () => {
-        console.log('okok')
-        setToggleImgCss(!toggleImgCss)
-    }
+    // const [toggleImgCss, setToggleImgCss ] = useState(false)
+    // const imgScale = () => {
+    //     setToggleImgCss(!toggleImgCss)
+    // }
     useEffect(() => {
         // on appel l'API
         async function fetchData () {;
@@ -33,7 +31,8 @@ const Row = ({title, fetchUrl, isPoster}) => {
                     {/* objectif: que les image de la premiere row soit en mode portrait, et les autres en mode paysages */}
                     {/* On map sur les résultats de l'API qui sont stoqués dans la variable movies */}
                     {movies.map((movie)=> (
-                    <div key={movie.id}>
+                    <div key={movie.id}
+                    >
                         {/* si on click sur une image on arrive également a l'url de la video */}
                         <Link to={`/video/${movie?.id}`}>
                         {/* On creer une variable qu'on initialise a true, si elle est a true alors on vas chercher une url */}
@@ -45,10 +44,11 @@ const Row = ({title, fetchUrl, isPoster}) => {
                             // On va chercher une autre URL
                             <img src={`${baseUrl}${movie?.backdrop_path}`} 
                             alt={movie.title} 
-                            className={`${toggleImgCss ? 'row__MouseImage' : 'row__image'}`}
+                            className='row__image'
+                            // {`${toggleImgCss ? 'row__MouseImage' : 'row__image'}`}
                             // 'row__image' 
-                            onMouseOver={imgScale}
-                            onMouseOut={imgScale}
+                            // onMouseOver={imgScale}
+                            // onMouseOut={imgScale}
                             />
                         ) }
                         

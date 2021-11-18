@@ -49,9 +49,9 @@ const Nav = () => {
                <NavLink to="/" className='nav__link active' >
                     Film
                </NavLink>
-               <NavLink to="/" className='nav__link active' > 
+               {/* <NavLink to="/" className='nav__link active' > 
                     New&Popular
-               </NavLink>
+               </NavLink> */}
            </nav>
            <div className="nav__actions">
                <NavLink to="/" className='nav__action'>
@@ -67,32 +67,9 @@ const Nav = () => {
                <NotificationsIcon
                />
                </NavLink>
-                 {/* <div className='log'>
-                 {
-                   localStorage.getItem('userName') ? 
-                   <div className='login'>
-                     {`welcome ${localStorage.getItem('userName')}`}
-                    <img src="./image/flech.png" alt="" className='fleche' />
-                  </div>
-                   :
-                   <img src="./image/avatar.jpg" alt=""/>
-                 }     
-                 <GoogleLogout
-                  className='log-out'
-                  clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
-                  buttonText="Logout"
-                  onLogoutSuccess={logout}
-                  icon='false'
-                  >
-                     </GoogleLogout>
-                </div> */}
-                   {/* <NavLink to="/" className='nav__action'> */}
                    <img src="./image/avatar.jpg" alt="" className='nav__action'
                    onClick={()=> history.push('/profile')}
                    />
-               
-               
-
            </div>
         </div>
     )
